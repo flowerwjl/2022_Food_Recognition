@@ -69,10 +69,10 @@ def ResearchFood(tables_name='food', id=None, FoodName=None, NUM=3, Ingredients=
 
 # 清洗数据标签
 def CleanData(str):
-    '''
+    """
     :param str:     待清洗字符串
     :return:        清洗完成字符串
-    '''
+    """
     str = str.replace('||||||', '\n')
     str = str.replace('|||||', '\n')
     str = str.replace('||||', ' ')
@@ -84,10 +84,10 @@ def CleanData(str):
 
 
 def ResearchUser(UID):
-    '''
+    """
     :param UID: 用户的唯一指定参数
     :return [UID,Name,Passwd,Region,Flavor,History]
-    '''
+    """
     UserList = []
     db, cursor = connect()
     tables_name = 'User'

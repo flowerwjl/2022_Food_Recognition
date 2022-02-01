@@ -48,14 +48,16 @@ def FoodNameSearch(PicturePath):
     request_url = request_url + "?access_token=" + access_token
     response = requests.post(request_url, data=params, headers=headers)
 
+    # print('百度API搜索到该食物的名字是')
     if response:
         # 列表
         FoodList = response.json()['result']
         for Food in FoodList:
             # {'probability': '0.61203', 'has_calorie': True, 'calorie': '194', 'name': '烤翅'}
-            print(Food['name'])
+            # print(Food['name'])
             NameList.append(Food['name'])
 
+    # print()
     return NameList
 
 

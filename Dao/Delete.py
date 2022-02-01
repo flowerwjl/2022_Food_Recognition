@@ -6,6 +6,7 @@
 
 from Dao.connect import connect, close
 
+
 def DeleteFood(id):
     db, cursor = connect()
     tables_name = 'food'
@@ -18,8 +19,7 @@ def DeleteFood(id):
 def DeleteUserInformation(UID):
     db, cursor = connect()
     tables_name = 'User'
-    cursor.execute("delete from %s where UID='%s' " %(tables_name,UID))
+    cursor.execute("delete from %s where UID='%s' " % (tables_name, UID))
     db.commit()
     close(db)
     print("该数据已删除成功")
-

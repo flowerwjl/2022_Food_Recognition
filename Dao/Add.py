@@ -11,7 +11,7 @@ def addFoodInformation(FoodName, Url, Ingredients, Ingredients_Pic, Steps, Steps
     db, cursor = connect()
     table_name = 'food'
 
-    sql = ("insert into {} (FoodName, Url, Ingredients, Ingredients_Pic, Steps, Steps_Pic) " \
+    sql = ("insert into {} (FoodName, Url, Ingredients, Ingredients_Pic, Steps, Steps_Pic) "
            "values(%s,%s,%s,%s,%s,%s)".format(table_name))
 
     cursor.execute(sql, (FoodName, Url, Ingredients, Ingredients_Pic, Steps, Steps_Pic))
@@ -32,7 +32,7 @@ def addUserInformation(Name, Passwd, Region, Flavor=None, History=None):
     '''
     db, cursor = connect()
     tables_name = 'User'
-    sql = ("insert into {} (Name,Passwd,Region,Flavor,History) " \
+    sql = ("insert into {} (Name,Passwd,Region,Flavor,History) "
            "values(%s,%s,%s,%s,%s)".format(tables_name))
 
     cursor.execute(sql, (Name, Passwd, Region, Flavor, History))

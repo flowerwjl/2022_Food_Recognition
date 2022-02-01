@@ -1,5 +1,2 @@
-from Dao.Add import *
-from Dao.Delete import DeleteFood
-
-# addFoodInformation(FoodName='dfg', Url='dfg', Ingredients='dfg', Ingredients_Pic='dfg', Steps='dfg', Steps_Pic='dfg')
-# DeleteFood(54190)
+from UserSystem.Register import addUser
+addUser('Name1', '123456', 'Region', 'Flavor', 'History')
