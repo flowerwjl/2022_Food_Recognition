@@ -22,13 +22,13 @@ def main_method(filepath):
     if len(Foodlists) == 0:
         print("未在数据库中搜索到结果！")
         exit()
-    for foods in Foodlists:
-        print('name:'+foods[1])
-        print('url:' + foods[2])
-        print('材料:' + foods[3])
-        print('成品图:' + foods[4])
-        print('步骤:' + foods[5])
-        print('步骤图片:' + foods[6])
+    # for foods in Foodlists:
+    #     print('name:'+foods[1])
+    #     print('url:' + foods[2])
+    #     print('材料:' + foods[3])
+    #     print('成品图:' + foods[4])
+    #     print('步骤:' + foods[5])
+    #     print('步骤图片:' + foods[6])
 
     for i in range(1, len(Foodlists) + 1):
         Foodlists[i-1].append(i)
