@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+	<head>
+		<title>details</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="css/5grid/init.js?use=mobile,desktop"></script>
+		<script src="js/jquery.formerize-1.1.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/5grid/core.css" />
+			<link rel="stylesheet" href="css/5grid/core-desktop.css" />
+			<link rel="stylesheet" href="css/5grid/core-1200px.css" />
+			<link rel="stylesheet" href="css/5grid/core-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#email" class="icon icon-mail"><span>Email Me</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Work -->
+							<article id="email" class="panel">
+								<header>
+									<h2>做法步骤页</h2>
+								</header>
+								<p style="color:black">
+									以下是"{{foodname}}"菜品的做法详细步骤：
+								</p>
+								<section class="5grid is-gallery">
+									<div class="row">
+										<div class="4u">
+											<p align="center" style="color:black">
+												步骤说明
+											</p>
+										</div>
+										<div class="4u">
+											<p align="center" style="color:black">
+												步骤图片
+											</p>
+										</div>
+									</div>
+									{% for item in steps %}
+									<div class="row">
+										<div class="4u">
+											<p>
+												{{item[0]}}
+											</p>
+										</div>
+										<div class="4u">
+											<p>
+												<img src="{{item[1]}}" class="image image-full" alt="数据库中图片缺失"/>
+											</p>
+										</div>
+									</div>
+									{% endfor %}
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="links">
+							<li>&copy 美食识别</li></ul>
+					</div>
+
+			</div>
+
+	</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+	<head>
+		<title>result</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="css/5grid/init.js?use=mobile,desktop"></script>
+		<script src="js/jquery.formerize-1.1.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/5grid/core.css" />
+			<link rel="stylesheet" href="css/5grid/core-desktop.css" />
+			<link rel="stylesheet" href="css/5grid/core-1200px.css" />
+			<link rel="stylesheet" href="css/5grid/core-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#email" class="icon icon-mail"><span>Email Me</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Work -->
+							<article id="email" class="panel">
+								<header>
+									<h2>结果页</h2>
+								</header>
+								<p style="color:black">
+									这是服务器端返回的您上传的美食图片的搜索结果：
+								</p>
+								<p>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您上传的图片中的食物可能是：
+									{% for item in foodnames %}
+									{{item}}
+									{% endfor %}
+								</p>
+								<p style="color:black">
+									以下是根据您搜索的美食图片为您匹配的美食信息：
+								</p>
+								<section class="5grid is-gallery">
+									<div class="row">
+										<div class="4u">
+											<p align="center" style="color:black">
+												菜品名称
+											</p>
+										</div>
+										<div class="4u">
+											<p align="center" style="color:black">
+												制作材料
+											</p>
+										</div>
+										<div class="4u">
+											<p align="center" style="color:black">
+												详细步骤
+											</p>
+										</div>
+									</div>
+									{% for item in foodlists %}
+									<div class="row">
+										<div class="4u">
+											<p>
+												菜品{{item[7]}}: {{item[1]}}
+											</p><img src="{{item[4]}}" class="image image-full" alt="数据库中图片缺失"/>
+										</div>
+										<div class="4u">
+											<p>
+												{{item[3]|safe}}
+											</p>
+										</div>
+										<div class="4u">
+											<form action="/detail" target="_blank" method="POST">
+												<p>
+													点击下方按钮查看该菜品制作的详细步骤页面
+												</p>
+												<a href="{{ url_for('detail', food=item[1]) }}" target="_blank"></a>
+												<input type="text" name="foodname" value="{{item[1]}}" hidden/>
+												<input type="text" name="steps" value="{{item[5]}}" hidden/>
+												<input type="text" name="step_pics" value="{{item[6]}}" hidden/>
+												<input type="submit" value="&quot;{{item[1]}}&quot;菜品制作" class="button" style="width:262px;height:162px" />
+											</form>
+										</div>
+									</div>
+									{% endfor %}
+								</section>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="links">
+							<li>&copy 美食识别</li></ul>
+					</div>
+
+			</div>
+
+	</body>
+</html>
